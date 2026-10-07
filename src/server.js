@@ -34,7 +34,10 @@ export async function buildTools({ file, name, id, search, path: dotPath }) {
       name: `${name}_list`,
       title: `List ${name}`,
       description: `List records from ${label}. Paginate with limit/offset.`,
-      inputSchema: { limit: z.number().int().min(1).max(200).default(20), offset: z.number().int().min(0).default(0) },
+      inputSchema: {
+        limit: z.number().int().min(1).max(200).default(20).describe("Maximum number of records to return (1-200)."),
+        offset: z.number().int().min(0).default(0).describe("Number of records to skip before returning results, for paging."),
+      },
       handler: async ({ limit, offset }) => {
         const p = { total: rows.length, offset, limit, items: rows.slice(offset, offset + limit) };
         return { content: [{ type: "text", text: text(p) }], structuredContent: p };
@@ -44,7 +47,10 @@ export async function buildTools({ file, name, id, search, path: dotPath }) {
       name: `${name}_search`,
       title: `Search ${name}`,
       description: `Keyword search over ${searchFields.join(", ")} in ${label}. All words must match (case-insensitive).`,
-      inputSchema: { query: z.string().min(1), limit: z.number().int().min(1).max(100).default(10) },
+      inputSchema: {
+        query: z.string().min(1).describe(`Words to look for in ${searchFields.join(", ")}. Every word must appear; case-insensitive.`),
+        limit: z.number().int().min(1).max(100).default(10).describe("Maximum number of matching records to return (1-100)."),
+      },
       handler: async ({ query, limit }) => {
         const q = tokens(query);
         const items = rows
@@ -61,7 +67,7 @@ export async function buildTools({ file, name, id, search, path: dotPath }) {
       name: `${name}_get`,
       title: `Get one ${name} record`,
       description: `Fetch a single record from ${label} by ${id}.`,
-      inputSchema: { [id]: z.string() },
+      inputSchema: { [id]: z.string().describe(`The ${id} of the record to fetch (exact match).`) },
       handler: async (args) => {
         const r = byId.get(String(args[id]));
         if (!r) return { content: [{ type: "text", text: `No ${name} with ${id}=${args[id]}` }], isError: true };
