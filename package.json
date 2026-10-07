@@ -1,0 +1,41 @@
+{
+  "name": "json-mcp-lite",
+  "version": "1.0.0",
+  "description": "Turn a JSON file into an MCP server in one command: list, search and get tools for Claude Desktop, Claude Code, Cursor and any stdio MCP client.",
+  "type": "module",
+  "bin": {
+    "json-mcp-lite": "src/server.js"
+  },
+  "main": "src/server.js",
+  "files": [
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node src/server.js --file examples/products.json --name products --id sku --search title,description",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "claude",
+    "cursor",
+    "json",
+    "ai-tools"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scoretracker4321/json-mcp-lite.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "zod": "3.25.76"
+  },
+  "license": "MIT"
+}

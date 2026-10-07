@@ -1,0 +1,7 @@
+[
+  { "sku": "TEA-001", "title": "Assam Breakfast Tea", "description": "Strong malty black tea, 250 g loose leaf", "price": 349, "stock": 42 },
+  { "sku": "TEA-002", "title": "Darjeeling First Flush", "description": "Light floral black tea, 100 g loose leaf", "price": 599, "stock": 12 },
+  { "sku": "TEA-003", "title": "Masala Chai Blend", "description": "Black tea with cardamom, ginger and clove, 250 g", "price": 299, "stock": 0 },
+  { "sku": "MUG-001", "title": "Stoneware Mug", "description": "Hand-glazed 350 ml mug, dishwasher safe", "price": 450, "stock": 30 },
+  { "sku": "KET-001", "title": "Glass Tea Kettle", "description": "1 litre borosilicate kettle with steel infuser", "price": 1299, "stock": 7 }
+]
