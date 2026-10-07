@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.scoretracker4321/json-mcp-lite",
+  "title": "JSON MCP Lite",
+  "description": "Serve any JSON file as read-only list, keyword search and get-by-id MCP tools.",
+  "repository": {
+    "url": "https://github.com/scoretracker4321/json-mcp-lite",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/scoretracker4321/json-mcp-lite/releases/download/v1.0.0/json-mcp-lite.mcpb",
+      "version": "1.0.0",
+      "fileSha256": "71706b4edeef723e8d487f659dd7e5b7e130c45ba524f6a70a60d99f4388d41c",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
