@@ -1,0 +1,5 @@
+test/
+Dockerfile
+glama.json
+*.mcpb
+.git/

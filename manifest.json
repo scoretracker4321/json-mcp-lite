@@ -1,0 +1,48 @@
+{
+  "manifest_version": "0.3",
+  "name": "json-mcp-lite",
+  "display_name": "JSON MCP Lite",
+  "version": "1.0.0",
+  "description": "Turn any JSON file into read-only list, search and get tools.",
+  "long_description": "Pick a JSON file (catalogue, FAQ, price list) and get three read-only tools: list with paging, keyword search across chosen fields, and get by id.",
+  "author": {
+    "name": "Brain Grain",
+    "email": "support@braingrain.in",
+    "url": "https://github.com/scoretracker4321"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scoretracker4321/json-mcp-lite"
+  },
+  "license": "MIT",
+  "keywords": ["json", "data", "search", "catalogue", "faq"],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.js",
+        "--file", "${user_config.file}",
+        "--name", "${user_config.name}",
+        "--id", "${user_config.id}",
+        "--search", "${user_config.search}"
+      ],
+      "env": {}
+    }
+  },
+  "tools": [
+    { "name": "records_list", "description": "List records with limit/offset paging (prefix = the Name setting)" },
+    { "name": "records_search", "description": "Keyword search; every word must match, case-insensitive" },
+    { "name": "records_get", "description": "One record by its id field" }
+  ],
+  "user_config": {
+    "file": { "type": "file", "title": "JSON file", "description": "A JSON file whose root is an array of records", "required": true },
+    "name": { "type": "string", "title": "Name", "description": "Tool name prefix, e.g. products", "default": "records", "required": false },
+    "id": { "type": "string", "title": "Id field", "description": "Field used to fetch one record", "default": "id", "required": false },
+    "search": { "type": "string", "title": "Search fields", "description": "Comma-separated fields to search, e.g. title,description", "default": "", "required": false }
+  },
+  "compatibility": {
+    "runtimes": { "node": ">=20.0.0" }
+  }
+}
