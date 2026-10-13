@@ -1,5 +1,7 @@
 # json-mcp-lite
 
+[![Json Mcp Lite on AI Agents Listing](https://aiagentslisting.com/json-mcp-lite/badge.svg?claim=eccb9c1211fea68d927f7a2cb69a52e7)](https://aiagentslisting.com/mcp/json-mcp-lite)
+
 Turn a JSON file into an **MCP server** in one command, so Claude Desktop, Claude Code, Cursor or any stdio MCP client can browse and search your data.
 
 Give it a catalogue, an FAQ, a price list or a docs index, and it creates three read-only tools:
